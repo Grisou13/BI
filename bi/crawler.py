@@ -29,6 +29,7 @@ def parse_rss(url):
 		job.title = item.title
 		job.date = item.published_parsed
 		job.id = item.id
+		data = item.description.decode('string_escape').replace("<br>","").replace("<br />","").replace("<br/>","")
 		
 
 def main():
