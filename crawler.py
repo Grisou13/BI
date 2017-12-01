@@ -1,5 +1,10 @@
+#/usr/bin/env python3
 import feedparser
+from bs4 import BeautifulSoup
+import html
+import requests
 import os, sys
+import re
 # json
 github_api = "https://jobs.github.com/positions.json"
 # rss
@@ -9,32 +14,55 @@ class Job():
 	id=""
 	title=""
 	url=""
-	entreprise=""
+	company=""
 	date=""
 	requirements=""
 	technologies=""
 	number_years_minima=""
-	diplome=""
+	diplome_required=""
 
-def get_technos(text):
+def determine_technos(text):
+	b = BeautifulSoup(text)
+	m = b.find(text=re.compile(r"require.*:"))
+	print(m)
+	if m is None:
+		return
+	item = m.findNext('ul')
+
+	print(item)
+
+
+def determine_requirements(text):
 	pass
 
-
+def determine_diplome(text):
+	pass
 
 def parse_rss(url):
 	parsed = feedparser.parse(url)
 	for item in parsed.entries:
 		job = Job()
 		job.url = item.link
-		job.title = item.title
+		#determine job title
+		regex = r"(.*)\s{0,}at\s{0,}(.*)"
+		m = re.search(regex, item.title)
+		job.title = m.group(1)
+		job.company = m.group(2)
+
+
 		job.date = item.published_parsed
 		job.id = item.id
-		data = item.description.decode('string_escape').replace("<br>","").replace("<br />","").replace("<br/>","")
-		
+		job.requirements = item.tags if hasattr(item,"tags") else []
+
+		data = html.unescape(item.description).replace("<br>","").replace("<br />","").replace("<br/>","") # remove all rubish
+		determine_technos(data)
+		print()
 
 def main():
 	parse_rss(stackoverflow_api)
 
+if __name__ == '__main__':
+	main()
 """
 <item><
 guid isPermaLink="false">135916</guid>
