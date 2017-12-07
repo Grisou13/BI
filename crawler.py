@@ -25,15 +25,43 @@ class Job():
 	location = ""
 	def __str__(self):
 		return json.dumps(self.__dict__)
+	
 def determine_technos(text):
-	b = BeautifulSoup(text)
-	m = b.find(text=re.compile(r"require.*:"))
+	wantedWords = ['language',
+	'experience',
+	'knowledge',
+	'expert',
+	'skill',
+	'proficient',
+	'programming',
+	'technologies',
+	'technology']
 
+	b = BeautifulSoup(text, "html.parser")
+	m = b.find(text=re.compile(r"require.*:"))
+	technos = []
+	#print(m)
 	if m is None:
-		return
+		return technos
 	item = m.findNext('ul')
 
-	# print(item)
+	if item is None:
+		return technos
+	for li in item.findAll('li'):
+		line = li.get_text()
+		if(not line.endswith('?') and any(word in line.lower() for word in wantedWords)):
+			#print(line)
+			techno1 = re.findall(r'\(([^)]+)\)', line)
+			if techno1:
+				techno1 = list(filter(None, re.split(r', |\/', techno1[0].replace('eg: ', '').replace('e.g. ', '').replace('etc.', ''))))
+				technos = technos + techno1
+			techno2 = line.replace('eg: ', '').replace('e.g. ', '').split(':')
+			if len(techno2)==2:
+				techno2 = techno2[1]
+				techno2 = list(filter(None, re.split(r', |\/', techno2.replace('etc.', ''))))
+				technos = technos + techno2
+
+	return technos
 
 def determine_years_of_experience(text):
 	regex = r"(\d) years of experience"
@@ -107,7 +135,7 @@ def parse_rss(url):
 
 		job.number_years_minima = determine_years_of_experience(data)
 
-		determine_technos(data)
+		job.technologies = job.technologies + determine_technos(data)
 		jobs.append(job)
 	return jobs
 def genJobs(jobs):
