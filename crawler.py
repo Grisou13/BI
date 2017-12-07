@@ -35,6 +35,18 @@ def determine_technos(text):
 
 	# print(item)
 
+def determine_years_of_experience(text):
+	regex = r"(\d) years of experience"
+	raw_text = BeautifulSoup(text).get_text()
+	m = re.match(regex,raw_text)
+
+	print(m)
+	print(raw_text)
+	if m is None:
+		return ""
+	else:
+		return m.group(1)
+
 
 def determine_requirements(text):
 	pass
@@ -92,6 +104,9 @@ def parse_rss(url):
 		job.technologies = [x.term for x in item.tags] if hasattr(item,"tags") else []
 
 		data = html.unescape(item.description).replace("<br>","").replace("<br />","").replace("<br/>","") # remove all rubish
+
+		job.number_years_minima = determine_years_of_experience(data)
+
 		determine_technos(data)
 		jobs.append(job)
 	return jobs
