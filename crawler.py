@@ -5,6 +5,8 @@ import html
 import requests
 import os, sys
 import re
+import json
+import csv
 # json
 github_api = "https://jobs.github.com/positions.json"
 # rss
@@ -16,20 +18,22 @@ class Job():
 	url=""
 	company=""
 	date=""
-	requirements=""
-	technologies=""
+	requirements=[]
+	technologies=[]
 	number_years_minima=""
 	diplome_required=""
 	location = ""
+	def __str__(self):
+		return json.dumps(self.__dict__)
 def determine_technos(text):
 	b = BeautifulSoup(text)
 	m = b.find(text=re.compile(r"require.*:"))
-	print(m)
+
 	if m is None:
 		return
 	item = m.findNext('ul')
 
-	print(item)
+	# print(item)
 
 
 def determine_requirements(text):
@@ -38,29 +42,92 @@ def determine_requirements(text):
 def determine_diplome(text):
 	pass
 
+def determine_title(text):
+	regex = r"(.*)\s{0,}at\s{0,}(.*)"
+	m = re.search(regex, text)
+	return m.group(1)
+def determine_company(text):
+	ret = ""
+	regex = r"(.*)\s{0,}at\s{0,}(.*)"
+	m = re.search(regex,text)
+	title = m.group(2)
+
+	reg = r"(.*)(\(.*\)$)"
+	m = re.search(reg, title)
+	if m is not None:
+		ret = m.group(1)
+	else:
+		ret = title
+	return ret
+
+def guess_location_in_title(text):
+	regex = r"(\(.*\)$)"
+	m = re.search(regex, text)
+	return m.group() if m is not None else ""
+
+def guess_job_is_remote(job):
+	regex = r"remote"
+
+	return job.location == "" and re.search(regex,job.title)
+
 def parse_rss(url):
 	parsed = feedparser.parse(url)
+	jobs = []
 	for item in parsed.entries:
 		job = Job()
 		job.url = item.link
 		#determine job title
-		regex = r"(.*)\s{0,}at\s{0,}(.*)"
-		m = re.search(regex, item.title)
-		job.title = m.group(1)
-		job.company = m.group(2)
+		job.title = determine_title(item.title)
+		job.company = determine_company(item.title)
 
-		job.location=item.location
-		job.date = item.published_parsed
+
+		locationInTitle = guess_location_in_title(job.title)
+
+		job.location=item.get("location",locationInTitle)
+		isRemote = guess_job_is_remote(job)
+		if isRemote and job.location == "":
+			job.location="remote"
+		job.date = item.published
 		job.id = item.id
-		job.requirements = item.tags if hasattr(item,"tags") else []
+		job.technologies = [x.term for x in item.tags] if hasattr(item,"tags") else []
 
 		data = html.unescape(item.description).replace("<br>","").replace("<br />","").replace("<br/>","") # remove all rubish
 		determine_technos(data)
-		print()
-
+		jobs.append(job)
+	return jobs
+def genJobs(jobs):
+	for j in jobs:
+		if should_keep_job(j): #determine if we should keep the job
+			yield j
+def should_keep_job(job):
+	regex = r"switzerland"
+	m = re.match(regex, job.location, re.IGNORECASE)
+	# print(job.location)
+	return job.location.endswith("Switzerland")
 def main():
-	parse_rss(stackoverflow_api)
+	jobs = parse_rss("feed.xml")
+	with open('jobs.csv', 'w', newline='') as csvfile:
+		fieldnames = ["ID","Date","URL","Source","Entreprise","Titre","Technologies","Diplôme","#année expérience","Competences"]
+		writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
+		writer.writeheader()
+		print("Total jobs : ",len(jobs))
+		print()
+		keptJobs = [x for x in jobs if should_keep_job(x)]
+		print("Kept jobs : ", len(keptJobs))
+		for i in keptJobs:
+			writer.writerow({
+				"ID":i.id,
+				"Date":i.date,
+				"URL":i.url,
+				"Source":"stackoverlow.com",
+				"Entreprise":i.company,
+				"Titre":i.title,
+				"Technologies":",".join(i.technologies),
+				"Diplôme": i.diplome_required,
+				"#année expérience": i.number_years_minima,
+				"Competences":",".join(i.requirements)
+			})
 if __name__ == '__main__':
 	main()
 """
