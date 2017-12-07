@@ -20,7 +20,7 @@ class Job():
 	technologies=""
 	number_years_minima=""
 	diplome_required=""
-
+	location = ""
 def determine_technos(text):
 	b = BeautifulSoup(text)
 	m = b.find(text=re.compile(r"require.*:"))
@@ -49,7 +49,7 @@ def parse_rss(url):
 		job.title = m.group(1)
 		job.company = m.group(2)
 
-
+		job.location=item.location
 		job.date = item.published_parsed
 		job.id = item.id
 		job.requirements = item.tags if hasattr(item,"tags") else []
