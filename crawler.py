@@ -117,13 +117,14 @@ class Job():
 
 	def determine_diploma(self,text):
 		# ((Bachelor|Master)\s?(?:degree\s)?\s?(in (.+?))?)[,\.\!](?:or|and|\W)
+		# ((Bachelors?|Master)\s?(?:degree\s)?\s?(in (.+?)))(?=,|\.|!|\/|or|and|[A-])
 		regs = {
-			"Bachelor - Master":r"((Bachelors?|Master)\s?(?:degree\s)?\s?(in (.+?)))(?=,|\.|!|\/|or|and|[A-])",
+			"Bachelor - Master":r"((bachelors? or masters?|bachelors?|masters?)\s((?:(?!or|,|\.|!).)*))",
 			"Apprenticeship":r"(apprenticeship)",
 			"CFC":r"(CFC)"
 		}
 		for k, v in regs.items():
-			m = re.search(v,text)
+			m = re.search(v,text, re.IGNORECASE)
 			if m:
 				return m.group(1)
 		return ""
