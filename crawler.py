@@ -23,10 +23,44 @@ class Job():
 	number_years_minima=""
 	diplome_required=""
 	location = ""
+
+	parsed_xml_entity = None
+	content = None
+	@staticmethod
+	def build(item):
+		job = Job()
+		data = html.unescape(item.description).replace("<br>","").replace("<br />","").replace("<br/>","") # remove all rubish
+		job.content = data
+		job.parsed_xml_entity = item
+
+		job.url = item.link
+		#determine job title
+		job.title = determine_title(item.title)
+		job.company = determine_company(item.title)
+
+
+		locationInTitle = guess_location_in_title(job.title)
+
+		job.location=item.get("location",locationInTitle)
+		isRemote = guess_job_is_remote(job)
+		if isRemote and job.location == "":
+			job.location="remote"
+		job.date = item.published
+		job.id = item.id
+		bs = BeautifulSoup(data, "html.parser")
+		job.technologies = [x.term for x in item.tags] if hasattr(item,"tags") else []
+		job.technologies = job.technologies + determine_technos(bs)
+
+		job.diplome_required = determine_diploma(item.title + "\n" +bs.get_text()+"\n")
+		job.number_years_minima = determine_years_of_experience(bs.get_text())
+
+		return job
+	def get_content(self):
+		return html.unescape(parsed_xml_entity.description).replace("<br>","").replace("<br />","").replace("<br/>","") # remove all rubish
 	def __str__(self):
 		return json.dumps(self.__dict__)
-	
-def determine_technos(text):
+
+def determine_technos(bs):
 	wantedWords = ['language',
 	'experience',
 	'knowledge',
@@ -37,7 +71,7 @@ def determine_technos(text):
 	'technologies',
 	'technology']
 
-	b = BeautifulSoup(text, "html.parser")
+	b = bs
 	m = b.find(text=re.compile(r"require.*:"))
 	technos = []
 	#print(m)
@@ -64,23 +98,32 @@ def determine_technos(text):
 	return technos
 
 def determine_years_of_experience(text):
-	regex = r"(\d) years of experience"
-	raw_text = BeautifulSoup(text).get_text()
-	m = re.match(regex,raw_text)
-
-	print(m)
-	print(raw_text)
-	if m is None:
-		return ""
-	else:
-		return m.group(1)
+	regs = [
+		r"(\d.?) years\s(?:of\s)?\s?experience"
+	]
+	for r in regs:
+		m = re.search(r,text)
+		if m is None:
+			return ""
+		else:
+			return m.group(1)
 
 
 def determine_requirements(text):
 	pass
 
-def determine_diplome(text):
-	pass
+def determine_diploma(text):
+	# ((Bachelor|Master)\s?(?:degree\s)?\s?(in (.+?))?)[,\.\!](?:or|and|\W)
+	regs = {
+		"Bachelor - Master":r"((Bachelor|Master)\s?(?:degree\s)?\s?(in (.+?)))(?=,|\.|!|\/|or|and|[A-])",
+		"Apprenticeship":r"(apprenticeship)",
+		"CFC":r"(CFC)"
+	}
+	for k, v in regs.items():
+		m = re.search(v,text)
+		if m:
+			return m.group(1)
+	return ""
 
 def determine_title(text):
 	regex = r"(.*)\s{0,}at\s{0,}(.*)"
@@ -114,37 +157,16 @@ def parse_rss(url):
 	parsed = feedparser.parse(url)
 	jobs = []
 	for item in parsed.entries:
-		job = Job()
-		job.url = item.link
-		#determine job title
-		job.title = determine_title(item.title)
-		job.company = determine_company(item.title)
-
-
-		locationInTitle = guess_location_in_title(job.title)
-
-		job.location=item.get("location",locationInTitle)
-		isRemote = guess_job_is_remote(job)
-		if isRemote and job.location == "":
-			job.location="remote"
-		job.date = item.published
-		job.id = item.id
-		job.technologies = [x.term for x in item.tags] if hasattr(item,"tags") else []
-
-		data = html.unescape(item.description).replace("<br>","").replace("<br />","").replace("<br/>","") # remove all rubish
-
-		job.number_years_minima = determine_years_of_experience(data)
-
-		job.technologies = job.technologies + determine_technos(data)
-		jobs.append(job)
+		jobs.append(Job.build(item))
 	return jobs
 def genJobs(jobs):
 	for j in jobs:
 		if should_keep_job(j): #determine if we should keep the job
 			yield j
 def should_keep_job(job):
-	regex = r"switzerland"
-	m = re.match(regex, job.location, re.IGNORECASE)
+	return True
+	# regex = r"switzerland"
+	# m = re.match(regex, job.location, re.IGNORECASE)
 	# print(job.location)
 	return job.location.endswith("Switzerland")
 def main():
@@ -158,18 +180,18 @@ def main():
 		print()
 		keptJobs = [x for x in jobs if should_keep_job(x)]
 		print("Kept jobs : ", len(keptJobs))
-		for i in keptJobs:
+		for job in keptJobs:
 			writer.writerow({
-				"ID":i.id,
-				"Date":i.date,
-				"URL":i.url,
+				"ID":job.id,
+				"Date":job.date,
+				"URL":job.url,
 				"Source":"stackoverlow.com",
-				"Entreprise":i.company,
-				"Titre":i.title,
-				"Technologies":",".join(i.technologies),
-				"Diplôme": i.diplome_required,
-				"#année expérience": i.number_years_minima,
-				"Competences":",".join(i.requirements)
+				"Entreprise":job.company,
+				"Titre":job.title,
+				"Technologies":",".join(job.technologies),
+				"Diplôme": job.diplome_required,
+				"#année expérience": job.number_years_minima,
+				"Competences":",".join(job.requirements)
 			})
 if __name__ == '__main__':
 	main()
