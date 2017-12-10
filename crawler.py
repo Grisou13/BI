@@ -41,7 +41,6 @@ class Job():
 		job.title = job.determine_title(item.title)
 		job.company = job.determine_company(item.title)
 
-
 		locationInTitle = job.guess_location_in_title(job.title)
 
 		job.location=item.get("location",locationInTitle)
@@ -52,12 +51,24 @@ class Job():
 		job.id = item.id
 
 		job.technologies = [x.term for x in item.tags] if hasattr(item,"tags") else []
-		job.technologies = job.technologies + job.determine_technos()
+		technos = job.determine_technos()
+		if not len(technos):
+			job.scrap_page_for_info(job.url)
+		job.technologies = job.technologies + technos
+		
 
 		job.diplome_required = job.determine_diploma(item.title + "\n" +bs.get_text()+"\n")
 		job.number_years_minima = job.determine_years_of_experience(bs.get_text())
 
 		return job
+	def scrap_page_for_info(self,url):
+		print(url)
+		return
+		res = requests.get(url)
+		bs = BeautifulSoup(res.text, "html.parser")
+		technos = bs.find("")
+		requirements = bs.find()
+
 	def get_content(self):
 		return html.unescape(parsed_xml_entity.description).replace("<br>","").replace("<br />","").replace("<br/>","") # remove all rubish
 	def __str__(self):
