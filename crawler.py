@@ -12,6 +12,22 @@ github_api = "https://jobs.github.com/positions.json"
 # rss
 stackoverflow_api="https://stackoverflow.com/jobs/feed"
 
+wantedWords = [
+'application',
+'development',
+'experience',
+'expert',
+'knowledge',
+'http',
+'api',
+'language',
+'proficient',
+'programming',
+'skill',
+'technologies',
+'technology',
+'web']
+
 class Job():
 	id=""
 	title=""
@@ -55,20 +71,24 @@ class Job():
 		if not len(technos):
 			job.scrap_page_for_info(job.url)
 		job.technologies = job.technologies + technos
-
+		job.requirements = job.determine_requirements(bs)
 
 		job.diplome_required = job.determine_diploma(item.title + "\n" +bs.get_text()+"\n")
 		job.number_years_minima = job.determine_years_of_experience(bs.get_text())
 
 		return job
+
 	def scrap_page_for_info(self,url):
-		if(should_keep_job(self)):
-			print(url)
-			res = requests.get(url)
-			bs = BeautifulSoup(res.text, "html.parser")
-			section_technos = bs.find("section", { "class" : "-skills-requirements" })
-			if(section_technos is not None):
-				print(self.determine_technos(section_technos))
+		#if(should_keep_job(self)):
+		print(url)
+		res = requests.get(url)
+		bs = BeautifulSoup(res.text, "html.parser")
+		section_technos = bs.find("section", { "class" : "-skills-requirements" })
+		if(section_technos is not None):
+			lists = section_technos.find(text=re.compile(r"require.*:*")).parent.parent.findAll("ul")
+			lists = BeautifulSoup("require:" + ''.join(str(e) for e in lists), "html.parser")
+			self.technologies = self.technologies + self.determine_technos(lists)
+			self.requirements = self.requirements + self.determine_requirements(lists)
 
 	def get_content(self):
 		return html.unescape(self.parsed_xml_entity.description).replace("<br>","").replace("<br />","").replace("<br/>","") # remove all rubish
@@ -76,20 +96,8 @@ class Job():
 		return json.dumps(self.__dict__)
 
 	def determine_technos(self,bs):
-		wantedWords = ['language',
-		'experience',
-		'knowledge',
-		'expert',
-		'skill',
-		'proficient',
-		'programming',
-		'technologies',
-		'technology']
-
-
 		m = bs.find(text=re.compile(r"require.*:*"))
 		technos = []
-		print(m)
 		if m is None:
 			return technos
 		item = m.findNext('ul')
@@ -98,17 +106,21 @@ class Job():
 			return technos
 		for li in item.findAll('li'):
 			line = li.get_text()
-			if(not line.endswith('?') and any(word in line.lower() for word in wantedWords)):
+			if(not line.endswith('?')):
 				#print(line)
 				techno1 = re.findall(r'\(([^)]+)\)', line)
-				if techno1:
-					techno1 = list(filter(None, re.split(r', |\/', techno1[0].replace('eg: ', '').replace('e.g. ', '').replace('etc.', ''))))
-					technos = technos + techno1
 				techno2 = line.replace('eg: ', '').replace('e.g. ', '').split(':')
-				if len(techno2)==2:
-					techno2 = techno2[1]
-					techno2 = list(filter(None, re.split(r', |\/', techno2.replace('etc.', ''))))
-					technos = technos + techno2
+				if techno1 or len(techno2)==2:
+					if techno1:
+						techno1 = list(filter(None, re.split(r', |\/', techno1[0].replace('eg: ', '').replace('e.g. ', '').replace('etc.', ''))))
+						technos = technos + techno1
+					techno2 = line.replace('eg: ', '').replace('e.g. ', '').split(':')
+					if len(techno2)==2:
+						techno2 = techno2[1]
+						techno2 = list(filter(None, re.split(r', |\/', techno2.replace('etc.', ''))))
+						technos = technos + techno2
+				elif any(word in line.lower() for word in wantedWords):
+					technos.append(line)
 
 		return technos
 
@@ -124,8 +136,22 @@ class Job():
 				return m.group(1)
 
 
-	def determine_requirements(self,text):
-		pass
+	def determine_requirements(self,bs):
+		m = bs.find(text=re.compile(r"require.*:*"))
+		requirements = []
+		if m is None:
+			return requirements
+		item = m.findNext('ul')
+
+		if item is None:
+			return requirements
+		for li in item.findAll('li'):
+			line = li.get_text()
+			if(not line.endswith('?') and any(word not in line.lower() for word in wantedWords)):
+				if(line not in self.technologies):
+					requirements.append(line)
+
+		return requirements
 
 	def determine_diploma(self,text):
 		# ((Bachelor|Master)\s?(?:degree\s)?\s?(in (.+?))?)[,\.\!](?:or|and|\W)
@@ -180,7 +206,7 @@ def genJobs(jobs):
 		if should_keep_job(j): #determine if we should keep the job
 			yield j
 def should_keep_job(job):
-	#return True
+	return True
 	# regex = r"switzerland"
 	# m = re.match(regex, job.location, re.IGNORECASE)
 	# print(job.location)
