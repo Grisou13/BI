@@ -51,11 +51,11 @@ class Job():
 		job.id = item.id
 
 		job.technologies = [x.term for x in item.tags] if hasattr(item,"tags") else []
-		technos = job.determine_technos()
+		technos = job.determine_technos(bs)
 		if not len(technos):
 			job.scrap_page_for_info(job.url)
 		job.technologies = job.technologies + technos
-		
+
 
 		job.diplome_required = job.determine_diploma(item.title + "\n" +bs.get_text()+"\n")
 		job.number_years_minima = job.determine_years_of_experience(bs.get_text())
@@ -70,11 +70,11 @@ class Job():
 		requirements = bs.find()
 
 	def get_content(self):
-		return html.unescape(parsed_xml_entity.description).replace("<br>","").replace("<br />","").replace("<br/>","") # remove all rubish
+		return html.unescape(self.parsed_xml_entity.description).replace("<br>","").replace("<br />","").replace("<br/>","") # remove all rubish
 	def __str__(self):
 		return json.dumps(self.__dict__)
 
-	def determine_technos(self,*args,**kwargs):
+	def determine_technos(self,bs):
 		wantedWords = ['language',
 		'experience',
 		'knowledge',
@@ -85,7 +85,7 @@ class Job():
 		'technologies',
 		'technology']
 
-		b = self.bs
+		b = bs
 		m = b.find(text=re.compile(r"require.*:"))
 		technos = []
 		#print(m)
@@ -116,7 +116,7 @@ class Job():
 			r"(\d.?) years\s(?:of\s)?\s?experience"
 		]
 		for r in regs:
-			m = re.search(r,self.content)
+			m = re.search(r,text)
 			if m is None:
 				return ""
 			else:
