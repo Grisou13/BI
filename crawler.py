@@ -62,12 +62,13 @@ class Job():
 
 		return job
 	def scrap_page_for_info(self,url):
-		print(url)
-		return
-		res = requests.get(url)
-		bs = BeautifulSoup(res.text, "html.parser")
-		technos = bs.find("")
-		requirements = bs.find()
+		if(should_keep_job(self)):
+			print(url)
+			res = requests.get(url)
+			bs = BeautifulSoup(res.text, "html.parser")
+			section_technos = bs.find("section", { "class" : "-skills-requirements" })
+			if(section_technos is not None):
+				print(self.determine_technos(section_technos))
 
 	def get_content(self):
 		return html.unescape(self.parsed_xml_entity.description).replace("<br>","").replace("<br />","").replace("<br/>","") # remove all rubish
@@ -85,10 +86,10 @@ class Job():
 		'technologies',
 		'technology']
 
-		b = bs
-		m = b.find(text=re.compile(r"require.*:"))
+
+		m = bs.find(text=re.compile(r"require.*:*"))
 		technos = []
-		#print(m)
+		print(m)
 		if m is None:
 			return technos
 		item = m.findNext('ul')
@@ -179,7 +180,7 @@ def genJobs(jobs):
 		if should_keep_job(j): #determine if we should keep the job
 			yield j
 def should_keep_job(job):
-	return True
+	#return True
 	# regex = r"switzerland"
 	# m = re.match(regex, job.location, re.IGNORECASE)
 	# print(job.location)
