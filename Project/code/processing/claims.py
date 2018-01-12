@@ -1,8 +1,11 @@
 #!/usr/bin/python
 import os
+from processing import Processor
 class ClaimsProcessor(Processor):
     name = "claims"
     def process(self, folder):
         for root, dirs, files in os.walk(folder):
             for f in files:
-    def _cumulateFile(self, )
+                pass
+    def _cumulateFile(self, s):
+        pass

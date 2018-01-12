@@ -3,6 +3,7 @@ import os, sys, glob
 import processing
 BASE_FOLDER = os.path.realpath("../data/raw/")
 
+print(dir(processing))
 PROCESS_FILE="process.py"
 
 PROCESSING = [
