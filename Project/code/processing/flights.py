@@ -1,11 +1,15 @@
 #!/usr/bin/python
 import os
+import csv
 from processing import Processor
 
 class FlightProcessor(Processor):
-    def process(self, folder):
-        for root, dirs, files in os.walk(folder):
-            for f in files:
-                pass
-    def _cumulateFile(self, s):
-        pass
+    name="flights"
+    fields = ["date","carrier_name","carrier_delay","weather_delay","late_aircraft_delay","cancelled"]
+    def process(self, in_, out):
+        reader = csv.DictReader(open(in_,"r"), delimiter = ",")
+        print(reader)
+        for row in reader:
+            print(row)
+            row["date"] = row["year"]+row["month"]
+            out.writerow(row)

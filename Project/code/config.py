@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 import os, sys, glob
-import processing
+from processing.claims import ClaimsProcessor
+from processing.flights import FlightProcessor
+
 BASE_FOLDER = os.path.realpath("../data/raw/")
 
-print(dir(processing))
 PROCESS_FILE="process.py"
 
 PROCESSING = [
-	processing.claims.ClaimsProcessor(),
-	processing.flights.FlightProcessor(),
-	processing.flightCount.FlightCountProcessor(),
+	ClaimsProcessor(),
+	FlightProcessor(),
+	#processing.flightCount.FlightCountProcessor(),
 ]
