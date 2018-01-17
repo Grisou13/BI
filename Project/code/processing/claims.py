@@ -1,16 +1,18 @@
 #!/usr/bin/python
 import datetime
-import os
+import os, sys
 from processing import Processor
 import pandas as pd
 import csv
 import openpyxl
 import xlrd
+from cleanco import cleanco
 
 class ClaimsProcessor(Processor):
-    name = "claims"
+    input = "claims"
+    out = "claims"
     claimType = "Property Damage"
-    fields = ["Incident Date", "Airline Name", "Item", "Claim Amount"]
+    fields = ["date", "airline", "Item", "Claim Amount"]
 
     def process(self, in_, out):
         """
@@ -31,14 +33,17 @@ class ClaimsProcessor(Processor):
                 val = sheet.cell(row_index, 1).value if sheet.cell(row_index, 1).value is not "" else sheet.cell(
                     row_index, 2).value
                 date = datetime.datetime(*xlrd.xldate_as_tuple(val, book.datemode))
+                airline_name = sheet.cell(row_index, 5).value
 
-                r = {"Incident Date": date.date().strftime("%Y-%m"), "Airline Name": sheet.cell(row_index, 5).value,
+                r = {"date": date.date().strftime("%Y-%m"), "airline": cleanco(airline_name).clean_name(),
                      "Item": sheet.cell(row_index, 8).value, "Claim Amount": sheet.cell(row_index, 9).value}
 
                 l = [sheet.cell(row_index, 2), sheet.cell(row_index, 5), sheet.cell(row_index, 8),
                      sheet.cell(row_index, 9)]
-                out.writerow(r)
-            except:
+                if not "" in r.values() and all(r.values()):
+                    out.writerow(r)
+            except Exception as e:
+                print(e)
                 print("something went wrong with row")
                 print(sheet.row(row_index))
         # wb = openpyxl.load_workbook(in_)

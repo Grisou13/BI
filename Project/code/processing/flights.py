@@ -2,14 +2,25 @@
 import os
 import csv
 from processing import Processor
+from cleanco import cleanco
+
 
 class FlightProcessor(Processor):
-    name="flights"
-    fields = ["date","carrier_name","carrier_delay","weather_delay","late_aircraft_delay","cancelled"]
+    input = "flights"
+    out = "flights"
+    fields = ["date","airline","carrier_delay","weather_delay","late_aircraft_delay","cancelled"]
     def process(self, in_, out):
+        #f = ["year","month","carrier","carrier_name","airport","airport_name","arr_flights","arr_del15","carrier_ct","weather_ct","nas_ct","security_ct","late_aircraft_ct","arr_cancelled","arr_diverted"," arr_delay"," carrier_delay","weather_delay","nas_delay","security_delay","late_aircraft_delay"]
         reader = csv.DictReader(open(in_,"r"), delimiter = ",")
         print(reader)
         for row in reader:
-            print(row)
-            row["date"] = row["year"]+row["month"]
-            out.writerow(row)
+            row["date"] = row["year"] + "-" +row["month"]
+            row["airline"] = cleanco(row["carrier_name"]).clean_name()
+            out_r = {}
+            for k in self.fields:
+                try:
+                    out_r[k] = row[k]
+                except KeyError:
+                    pass
+
+            out.writerow(out_r)

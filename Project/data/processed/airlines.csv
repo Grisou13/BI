@@ -1,0 +1,1241 @@
+id,airline
+0,Southwest Airlines
+1,Delta Air Lines
+2,Jet Blue
+3,Continental Airlines
+4,Northwest Airlines
+5,UAL
+6,American Airlines
+7,Skywest Airlines Inc USA
+8,China Airlines
+9,USAir
+10,Alaska Airlines
+11,Air Tran Airlines(do not use
+12,America West
+13,Spirit Airlines
+14,Sun Country Airlines
+15,Westjet Airlines
+16,ATA Aerocondor
+17,Frontier Airlines
+18,Virgin Atlantic
+19,AirTran Airlines
+20,Air Canada
+21,Hawaiian Airlines
+22,Continental Express
+23,Allegiant Air
+24,Midwest Express Airlines
+25,British Airways
+26,Horizon Air
+27,Alitalia
+28,Avianca
+29,Aloha Airlines
+30,Air France
+31,American Eagle
+32,Qantus Airways
+33,Mexicana
+34,Swiss Air
+35,USA 3000 (U5
+36,American West
+37,Midway Airlines
+38,US Express
+39,Lufthansa
+40,Britannia Airways
+41,Iceland Air
+42,American Central
+43,North American Airlines
+44,Air New Zealand
+45,Japan Airlines
+46,Czech Airlines
+47,Southeast Airlines
+48,EL AL Israeli Airlines
+49,Ryan Air
+50,Island Air
+51,Scandinavian Airlines Systems
+52,KLM Royal Dutch Airlines
+53,Aero Mexico
+54,Cathay Pacific - CX
+55,Aerolineas Argentinas
+56,Aer Lingus
+57,Air China
+58,EVA airlines
+59,America Trans Air
+60,Polish Airlines
+61,Cayman Airlines
+62,Pakistan International Airlines Cor
+63,South African Airways
+64,LOT Polish Airlines
+65,Singapore Airlines
+66,Guyana Airways
+67,Harmony Airlines
+68,Korean Airlines
+69,Air Jamaica
+70,Comair
+71,Royal Jordanian Airline
+72,Northwest International Airways
+73,Egypt Air
+74,All Nippon Airways
+75,Monarch Airlines
+76,Malaysian Airline System
+77,Cape Air
+78,British Midland Airways
+79,Frontier Aviation
+80,Air Pacific
+81,Go
+82,Austrian Airlines
+83,Asiana Airlines
+84,Champion Airlines
+85,Great Lakes Airline
+86,China Eastern Airlines
+87,Delta (Song
+88,Malev Hungarian Airlines
+89,Air India
+90,OMNI Air Express- (OY
+91,Aero Flot
+92,Olympic Airways
+93,Commercial Airways
+94,Thai Airways
+95,Montair Aviation
+96,Aerosweet Airlines
+97,Iberia Airlines
+98,Big Sky Airlines
+99,Travelspan
+100,Lan Airlines
+101,SkyBus
+102,Bahama Airlines
+103,Copa Airlines
+104,Turkish Airlines
+105,Silverjet
+106,Condor Air
+107,Kuwait Airways
+108,Air Phillipines
+109,Virgin Express
+110,Jet Train Airlines
+111,JAT
+112,Brit Air
+113,Air Inter Europe
+114,British West Indies Airlines
+115,Cameroon Airlines
+116,Canadian Airlines
+117,Sunworld International Airlines
+118,Aeroflot Russian International
+119,Virgin America
+120,Royal Dutch Airlines
+121,Eurowings
+122,TAP Portugal
+123,Mesa Airlines
+124,Saudi Arabian Airlines
+125,TACA airlines
+126,Air Botina
+127,Allegheny Airlines
+128,Mountain West
+129,Vision Airlines
+130,Direct Air
+131,Qatar airlines
+132,Carribean Airlines
+133,V Australia
+134,Emirates
+135,Ethopian Airlines
+136,TAM airlines
+137,Vieques Air
+138,Jet Airways
+139,Aerosvit Airlines
+140,Thomas Cook Airline
+141,SonAir
+142,Globe Span Airlines
+143,Air Nippon
+144,AeroGal
+145,China Southern Airlines
+146,SunWing Airlines
+147,Civil Aviation - Non-Commercial Carrier
+148,Santa Barbara Airlines
+149,Martinair
+150,Philippine Airlines
+151,Xtra Airways
+0,Southwest Airlines
+1,Delta Air Lines
+2,Jet Blue
+3,Continental Airlines
+4,Northwest Airlines
+5,UAL
+6,American Airlines
+7,Skywest Airlines Inc USA
+8,China Airlines
+9,USAir
+10,Alaska Airlines
+11,Air Tran Airlines(do not use
+12,America West
+13,Spirit Airlines
+14,Sun Country Airlines
+15,Westjet Airlines
+16,ATA Aerocondor
+17,Frontier Airlines
+18,Virgin Atlantic
+19,AirTran Airlines
+20,Air Canada
+21,Hawaiian Airlines
+22,Continental Express
+23,Allegiant Air
+24,Midwest Express Airlines
+25,British Airways
+26,Horizon Air
+27,Alitalia
+28,Avianca
+29,Aloha Airlines
+30,Air France
+31,American Eagle
+32,Qantus Airways
+33,Mexicana
+34,Swiss Air
+35,USA 3000 (U5
+36,American West
+37,Midway Airlines
+38,US Express
+39,Lufthansa
+40,Britannia Airways
+41,Iceland Air
+42,American Central
+43,North American Airlines
+44,Air New Zealand
+45,Japan Airlines
+46,Czech Airlines
+47,Southeast Airlines
+48,EL AL Israeli Airlines
+49,Ryan Air
+50,Island Air
+51,Scandinavian Airlines Systems
+52,KLM Royal Dutch Airlines
+53,Aero Mexico
+54,Cathay Pacific - CX
+55,Aerolineas Argentinas
+56,Aer Lingus
+57,Air China
+58,EVA airlines
+59,America Trans Air
+60,Polish Airlines
+61,Cayman Airlines
+62,Pakistan International Airlines Cor
+63,South African Airways
+64,LOT Polish Airlines
+65,Singapore Airlines
+66,Guyana Airways
+67,Harmony Airlines
+68,Korean Airlines
+69,Air Jamaica
+70,Comair
+71,Royal Jordanian Airline
+72,Northwest International Airways
+73,Egypt Air
+74,All Nippon Airways
+75,Monarch Airlines
+76,Malaysian Airline System
+77,Cape Air
+78,British Midland Airways
+79,Frontier Aviation
+80,Air Pacific
+81,Go
+82,Austrian Airlines
+83,Asiana Airlines
+84,Champion Airlines
+85,Great Lakes Airline
+86,China Eastern Airlines
+87,Delta (Song
+88,Malev Hungarian Airlines
+89,Air India
+90,OMNI Air Express- (OY
+91,Aero Flot
+92,Olympic Airways
+93,Commercial Airways
+94,Thai Airways
+95,Montair Aviation
+96,Aerosweet Airlines
+97,Iberia Airlines
+98,Big Sky Airlines
+99,Travelspan
+100,Lan Airlines
+101,SkyBus
+102,Bahama Airlines
+103,Copa Airlines
+104,Turkish Airlines
+105,Silverjet
+106,Condor Air
+107,Kuwait Airways
+108,Air Phillipines
+109,Virgin Express
+110,Jet Train Airlines
+111,JAT
+112,Brit Air
+113,Air Inter Europe
+114,British West Indies Airlines
+115,Cameroon Airlines
+116,Canadian Airlines
+117,Sunworld International Airlines
+118,Aeroflot Russian International
+119,Virgin America
+120,Royal Dutch Airlines
+121,Eurowings
+122,TAP Portugal
+123,Mesa Airlines
+124,Saudi Arabian Airlines
+125,TACA airlines
+126,Air Botina
+127,Allegheny Airlines
+128,Mountain West
+129,Vision Airlines
+130,Direct Air
+131,Qatar airlines
+132,Carribean Airlines
+133,V Australia
+134,Emirates
+135,Ethopian Airlines
+136,TAM airlines
+137,Vieques Air
+138,Jet Airways
+139,Aerosvit Airlines
+140,Thomas Cook Airline
+141,SonAir
+142,Globe Span Airlines
+143,Air Nippon
+144,AeroGal
+145,China Southern Airlines
+146,SunWing Airlines
+147,Civil Aviation - Non-Commercial Carrier
+148,Santa Barbara Airlines
+149,Martinair
+150,Philippine Airlines
+151,Xtra Airways
+152,Tran Meridian Airlines
+153,Tower Air
+154,Air 2000 Ltd Great Britain
+155,TWA
+156,Sun Jet International Airlines
+157,Indian Airlines
+158,Pan American Airways
+159,Pace Airlines
+160,Western Pacific Airlines Inc Westpac
+161,Reno Air
+162,Aloha Islandair
+163,Wiggins Airways
+164,Skywest Airlines Australia
+165,Royal Wings Airlines
+166,Kuwait Airlines
+167,Independence Air
+168,Hooters Air (PACE
+169,Island Airlines Nantucket
+170,Pacific Southwest Airlines
+171,Arika Isreali Airlines
+172,Mountain Air Express
+173,Aviaco
+174,Greyhound Air
+175,Cubana
+176,Aero Lloyd
+177,Air Labrador
+178,Air Belgium International S A
+179,Aero California
+180,Estonia Air
+181,Iran Air
+182,Air Ukraine International
+183,Air Portugal
+184,Middle East Airlines
+185,Air Atlantic
+186,Grupo TACA
+187,Czechoslavak Airlines
+188,Piedmont Airlines
+189,Croatia Airlines
+190,Air Malta
+0,Southwest Airlines
+1,Delta Air Lines
+2,Jet Blue
+3,Continental Airlines
+4,Northwest Airlines
+5,UAL
+6,American Airlines
+7,Skywest Airlines Inc USA
+8,China Airlines
+9,USAir
+10,Alaska Airlines
+11,Air Tran Airlines(do not use
+12,America West
+13,Spirit Airlines
+14,Sun Country Airlines
+15,Westjet Airlines
+16,ATA Aerocondor
+17,Frontier Airlines
+18,Virgin Atlantic
+19,AirTran Airlines
+20,Air Canada
+21,Hawaiian Airlines
+22,Continental Express
+23,Allegiant Air
+24,Midwest Express Airlines
+25,British Airways
+26,Horizon Air
+27,Alitalia
+28,Avianca
+29,Aloha Airlines
+30,Air France
+31,American Eagle
+32,Qantus Airways
+33,Mexicana
+34,Swiss Air
+35,USA 3000 (U5
+36,American West
+37,Midway Airlines
+38,US Express
+39,Lufthansa
+40,Britannia Airways
+41,Iceland Air
+42,American Central
+43,North American Airlines
+44,Air New Zealand
+45,Japan Airlines
+46,Czech Airlines
+47,Southeast Airlines
+48,EL AL Israeli Airlines
+49,Ryan Air
+50,Island Air
+51,Scandinavian Airlines Systems
+52,KLM Royal Dutch Airlines
+53,Aero Mexico
+54,Cathay Pacific - CX
+55,Aerolineas Argentinas
+56,Aer Lingus
+57,Air China
+58,EVA airlines
+59,America Trans Air
+60,Polish Airlines
+61,Cayman Airlines
+62,Pakistan International Airlines Cor
+63,South African Airways
+64,LOT Polish Airlines
+65,Singapore Airlines
+66,Guyana Airways
+67,Harmony Airlines
+68,Korean Airlines
+69,Air Jamaica
+70,Comair
+71,Royal Jordanian Airline
+72,Northwest International Airways
+73,Egypt Air
+74,All Nippon Airways
+75,Monarch Airlines
+76,Malaysian Airline System
+77,Cape Air
+78,British Midland Airways
+79,Frontier Aviation
+80,Air Pacific
+81,Go
+82,Austrian Airlines
+83,Asiana Airlines
+84,Champion Airlines
+85,Great Lakes Airline
+86,China Eastern Airlines
+87,Delta (Song
+88,Malev Hungarian Airlines
+89,Air India
+90,OMNI Air Express- (OY
+91,Aero Flot
+92,Olympic Airways
+93,Commercial Airways
+94,Thai Airways
+95,Montair Aviation
+96,Aerosweet Airlines
+97,Iberia Airlines
+98,Big Sky Airlines
+99,Travelspan
+100,Lan Airlines
+101,SkyBus
+102,Bahama Airlines
+103,Copa Airlines
+104,Turkish Airlines
+105,Silverjet
+106,Condor Air
+107,Kuwait Airways
+108,Air Phillipines
+109,Virgin Express
+110,Jet Train Airlines
+111,JAT
+112,Brit Air
+113,Air Inter Europe
+114,British West Indies Airlines
+115,Cameroon Airlines
+116,Canadian Airlines
+117,Sunworld International Airlines
+118,Aeroflot Russian International
+119,Virgin America
+120,Royal Dutch Airlines
+121,Eurowings
+122,TAP Portugal
+123,Mesa Airlines
+124,Saudi Arabian Airlines
+125,TACA airlines
+126,Air Botina
+127,Allegheny Airlines
+128,Mountain West
+129,Vision Airlines
+130,Direct Air
+131,Qatar airlines
+132,Carribean Airlines
+133,V Australia
+134,Emirates
+135,Ethopian Airlines
+136,TAM airlines
+137,Vieques Air
+138,Jet Airways
+139,Aerosvit Airlines
+140,Thomas Cook Airline
+141,SonAir
+142,Globe Span Airlines
+143,Air Nippon
+144,AeroGal
+145,China Southern Airlines
+146,SunWing Airlines
+147,Civil Aviation - Non-Commercial Carrier
+148,Santa Barbara Airlines
+149,Martinair
+150,Philippine Airlines
+151,Xtra Airways
+152,Tran Meridian Airlines
+153,Tower Air
+154,Air 2000 Ltd Great Britain
+155,TWA
+156,Sun Jet International Airlines
+157,Indian Airlines
+158,Pan American Airways
+159,Pace Airlines
+160,Western Pacific Airlines Inc Westpac
+161,Reno Air
+162,Aloha Islandair
+163,Wiggins Airways
+164,Skywest Airlines Australia
+165,Royal Wings Airlines
+166,Kuwait Airlines
+167,Independence Air
+168,Hooters Air (PACE
+169,Island Airlines Nantucket
+170,Pacific Southwest Airlines
+171,Arika Isreali Airlines
+172,Mountain Air Express
+173,Aviaco
+174,Greyhound Air
+175,Cubana
+176,Aero Lloyd
+177,Air Labrador
+178,Air Belgium International S A
+179,Aero California
+180,Estonia Air
+181,Iran Air
+182,Air Ukraine International
+183,Air Portugal
+184,Middle East Airlines
+185,Air Atlantic
+186,Grupo TACA
+187,Czechoslavak Airlines
+188,Piedmont Airlines
+189,Croatia Airlines
+190,Air Malta
+191,Aero Lineas Mexicanas J S S A De C V
+192,Air Europa
+193,CanJet
+194,Aero Costa Rica
+195,Finnair
+196,Aeromar
+197,Webjet
+198,Air Tahiti Nui
+199,Porter Airlines
+200,Sata
+201,Aerolitoral
+202,Etihad Airways
+203,Volaris Airlines
+204,Transaero Airlines
+205,Seaborne Airlines
+206,JALways Airlines
+207,Arik Airlines
+208,Air Berlin
+209,Hainan Airlines
+210,vivaAerobus
+211,ERA aviation Air
+212,Aero Peru
+213,Surinam Airways
+214,XL Airways
+0,Southwest Airlines
+1,Delta Air Lines
+2,Jet Blue
+3,Continental Airlines
+4,Northwest Airlines
+5,UAL
+6,American Airlines
+7,Skywest Airlines Inc USA
+8,China Airlines
+9,USAir
+10,Alaska Airlines
+11,Air Tran Airlines(do not use
+12,America West
+13,Spirit Airlines
+14,Sun Country Airlines
+15,Westjet Airlines
+16,ATA Aerocondor
+17,Frontier Airlines
+18,Virgin Atlantic
+19,AirTran Airlines
+20,Air Canada
+21,Hawaiian Airlines
+22,Continental Express
+23,Allegiant Air
+24,Midwest Express Airlines
+25,British Airways
+26,Horizon Air
+27,Alitalia
+28,Avianca
+29,Aloha Airlines
+30,Air France
+31,American Eagle
+32,Qantus Airways
+33,Mexicana
+34,Swiss Air
+35,USA 3000 (U5
+36,American West
+37,Midway Airlines
+38,US Express
+39,Lufthansa
+40,Britannia Airways
+41,Iceland Air
+42,American Central
+43,North American Airlines
+44,Air New Zealand
+45,Japan Airlines
+46,Czech Airlines
+47,Southeast Airlines
+48,EL AL Israeli Airlines
+49,Ryan Air
+50,Island Air
+51,Scandinavian Airlines Systems
+52,KLM Royal Dutch Airlines
+53,Aero Mexico
+54,Cathay Pacific - CX
+55,Aerolineas Argentinas
+56,Aer Lingus
+57,Air China
+58,EVA airlines
+59,America Trans Air
+60,Polish Airlines
+61,Cayman Airlines
+62,Pakistan International Airlines Cor
+63,South African Airways
+64,LOT Polish Airlines
+65,Singapore Airlines
+66,Guyana Airways
+67,Harmony Airlines
+68,Korean Airlines
+69,Air Jamaica
+70,Comair
+71,Royal Jordanian Airline
+72,Northwest International Airways
+73,Egypt Air
+74,All Nippon Airways
+75,Monarch Airlines
+76,Malaysian Airline System
+77,Cape Air
+78,British Midland Airways
+79,Frontier Aviation
+80,Air Pacific
+81,Go
+82,Austrian Airlines
+83,Asiana Airlines
+84,Champion Airlines
+85,Great Lakes Airline
+86,China Eastern Airlines
+87,Delta (Song
+88,Malev Hungarian Airlines
+89,Air India
+90,OMNI Air Express- (OY
+91,Aero Flot
+92,Olympic Airways
+93,Commercial Airways
+94,Thai Airways
+95,Montair Aviation
+96,Aerosweet Airlines
+97,Iberia Airlines
+98,Big Sky Airlines
+99,Travelspan
+100,Lan Airlines
+101,SkyBus
+102,Bahama Airlines
+103,Copa Airlines
+104,Turkish Airlines
+105,Silverjet
+106,Condor Air
+107,Kuwait Airways
+108,Air Phillipines
+109,Virgin Express
+110,Jet Train Airlines
+111,JAT
+112,Brit Air
+113,Air Inter Europe
+114,British West Indies Airlines
+115,Cameroon Airlines
+116,Canadian Airlines
+117,Sunworld International Airlines
+118,Aeroflot Russian International
+119,Virgin America
+120,Royal Dutch Airlines
+121,Eurowings
+122,TAP Portugal
+123,Mesa Airlines
+124,Saudi Arabian Airlines
+125,TACA airlines
+126,Air Botina
+127,Allegheny Airlines
+128,Mountain West
+129,Vision Airlines
+130,Direct Air
+131,Qatar airlines
+132,Carribean Airlines
+133,V Australia
+134,Emirates
+135,Ethopian Airlines
+136,TAM airlines
+137,Vieques Air
+138,Jet Airways
+139,Aerosvit Airlines
+140,Thomas Cook Airline
+141,SonAir
+142,Globe Span Airlines
+143,Air Nippon
+144,AeroGal
+145,China Southern Airlines
+146,SunWing Airlines
+147,Civil Aviation - Non-Commercial Carrier
+148,Santa Barbara Airlines
+149,Martinair
+150,Philippine Airlines
+151,Xtra Airways
+152,Tran Meridian Airlines
+153,Tower Air
+154,Air 2000 Ltd Great Britain
+155,TWA
+156,Sun Jet International Airlines
+157,Indian Airlines
+158,Pan American Airways
+159,Pace Airlines
+160,Western Pacific Airlines Inc Westpac
+161,Reno Air
+162,Aloha Islandair
+163,Wiggins Airways
+164,Skywest Airlines Australia
+165,Royal Wings Airlines
+166,Kuwait Airlines
+167,Independence Air
+168,Hooters Air (PACE
+169,Island Airlines Nantucket
+170,Pacific Southwest Airlines
+171,Arika Isreali Airlines
+172,Mountain Air Express
+173,Aviaco
+174,Greyhound Air
+175,Cubana
+176,Aero Lloyd
+177,Air Labrador
+178,Air Belgium International S A
+179,Aero California
+180,Estonia Air
+181,Iran Air
+182,Air Ukraine International
+183,Air Portugal
+184,Middle East Airlines
+185,Air Atlantic
+186,Grupo TACA
+187,Czechoslavak Airlines
+188,Piedmont Airlines
+189,Croatia Airlines
+190,Air Malta
+191,Aero Lineas Mexicanas J S S A De C V
+192,Air Europa
+193,CanJet
+194,Aero Costa Rica
+195,Finnair
+196,Aeromar
+197,Webjet
+198,Air Tahiti Nui
+199,Porter Airlines
+200,Sata
+201,Aerolitoral
+202,Etihad Airways
+203,Volaris Airlines
+204,Transaero Airlines
+205,Seaborne Airlines
+206,JALways Airlines
+207,Arik Airlines
+208,Air Berlin
+209,Hainan Airlines
+210,vivaAerobus
+211,ERA aviation Air
+212,Aero Peru
+213,Surinam Airways
+214,XL Airways
+215,Qantas Airlines
+216,Aires Airline
+217,Norwegian Airlines
+218,Brussels Airlines
+219,Republic Airways
+0,Southwest Airlines
+1,Delta Air Lines
+2,Jet Blue
+3,Continental Airlines
+4,Northwest Airlines
+5,UAL
+6,American Airlines
+7,Skywest Airlines Inc USA
+8,China Airlines
+9,USAir
+10,Alaska Airlines
+11,Air Tran Airlines(do not use
+12,America West
+13,Spirit Airlines
+14,Sun Country Airlines
+15,Westjet Airlines
+16,ATA Aerocondor
+17,Frontier Airlines
+18,Virgin Atlantic
+19,AirTran Airlines
+20,Air Canada
+21,Hawaiian Airlines
+22,Continental Express
+23,Allegiant Air
+24,Midwest Express Airlines
+25,British Airways
+26,Horizon Air
+27,Alitalia
+28,Avianca
+29,Aloha Airlines
+30,Air France
+31,American Eagle
+32,Qantus Airways
+33,Mexicana
+34,Swiss Air
+35,USA 3000 (U5
+36,American West
+37,Midway Airlines
+38,US Express
+39,Lufthansa
+40,Britannia Airways
+41,Iceland Air
+42,American Central
+43,North American Airlines
+44,Air New Zealand
+45,Japan Airlines
+46,Czech Airlines
+47,Southeast Airlines
+48,EL AL Israeli Airlines
+49,Ryan Air
+50,Island Air
+51,Scandinavian Airlines Systems
+52,KLM Royal Dutch Airlines
+53,Aero Mexico
+54,Cathay Pacific - CX
+55,Aerolineas Argentinas
+56,Aer Lingus
+57,Air China
+58,EVA airlines
+59,America Trans Air
+60,Polish Airlines
+61,Cayman Airlines
+62,Pakistan International Airlines Cor
+63,South African Airways
+64,LOT Polish Airlines
+65,Singapore Airlines
+66,Guyana Airways
+67,Harmony Airlines
+68,Korean Airlines
+69,Air Jamaica
+70,Comair
+71,Royal Jordanian Airline
+72,Northwest International Airways
+73,Egypt Air
+74,All Nippon Airways
+75,Monarch Airlines
+76,Malaysian Airline System
+77,Cape Air
+78,British Midland Airways
+79,Frontier Aviation
+80,Air Pacific
+81,Go
+82,Austrian Airlines
+83,Asiana Airlines
+84,Champion Airlines
+85,Great Lakes Airline
+86,China Eastern Airlines
+87,Delta (Song
+88,Malev Hungarian Airlines
+89,Air India
+90,OMNI Air Express- (OY
+91,Aero Flot
+92,Olympic Airways
+93,Commercial Airways
+94,Thai Airways
+95,Montair Aviation
+96,Aerosweet Airlines
+97,Iberia Airlines
+98,Big Sky Airlines
+99,Travelspan
+100,Lan Airlines
+101,SkyBus
+102,Bahama Airlines
+103,Copa Airlines
+104,Turkish Airlines
+105,Silverjet
+106,Condor Air
+107,Kuwait Airways
+108,Air Phillipines
+109,Virgin Express
+110,Jet Train Airlines
+111,JAT
+112,Brit Air
+113,Air Inter Europe
+114,British West Indies Airlines
+115,Cameroon Airlines
+116,Canadian Airlines
+117,Sunworld International Airlines
+118,Aeroflot Russian International
+119,Virgin America
+120,Royal Dutch Airlines
+121,Eurowings
+122,TAP Portugal
+123,Mesa Airlines
+124,Saudi Arabian Airlines
+125,TACA airlines
+126,Air Botina
+127,Allegheny Airlines
+128,Mountain West
+129,Vision Airlines
+130,Direct Air
+131,Qatar airlines
+132,Carribean Airlines
+133,V Australia
+134,Emirates
+135,Ethopian Airlines
+136,TAM airlines
+137,Vieques Air
+138,Jet Airways
+139,Aerosvit Airlines
+140,Thomas Cook Airline
+141,SonAir
+142,Globe Span Airlines
+143,Air Nippon
+144,AeroGal
+145,China Southern Airlines
+146,SunWing Airlines
+147,Civil Aviation - Non-Commercial Carrier
+148,Santa Barbara Airlines
+149,Martinair
+150,Philippine Airlines
+151,Xtra Airways
+152,Tran Meridian Airlines
+153,Tower Air
+154,Air 2000 Ltd Great Britain
+155,TWA
+156,Sun Jet International Airlines
+157,Indian Airlines
+158,Pan American Airways
+159,Pace Airlines
+160,Western Pacific Airlines Inc Westpac
+161,Reno Air
+162,Aloha Islandair
+163,Wiggins Airways
+164,Skywest Airlines Australia
+165,Royal Wings Airlines
+166,Kuwait Airlines
+167,Independence Air
+168,Hooters Air (PACE
+169,Island Airlines Nantucket
+170,Pacific Southwest Airlines
+171,Arika Isreali Airlines
+172,Mountain Air Express
+173,Aviaco
+174,Greyhound Air
+175,Cubana
+176,Aero Lloyd
+177,Air Labrador
+178,Air Belgium International S A
+179,Aero California
+180,Estonia Air
+181,Iran Air
+182,Air Ukraine International
+183,Air Portugal
+184,Middle East Airlines
+185,Air Atlantic
+186,Grupo TACA
+187,Czechoslavak Airlines
+188,Piedmont Airlines
+189,Croatia Airlines
+190,Air Malta
+191,Aero Lineas Mexicanas J S S A De C V
+192,Air Europa
+193,CanJet
+194,Aero Costa Rica
+195,Finnair
+196,Aeromar
+197,Webjet
+198,Air Tahiti Nui
+199,Porter Airlines
+200,Sata
+201,Aerolitoral
+202,Etihad Airways
+203,Volaris Airlines
+204,Transaero Airlines
+205,Seaborne Airlines
+206,JALways Airlines
+207,Arik Airlines
+208,Air Berlin
+209,Hainan Airlines
+210,vivaAerobus
+211,ERA aviation Air
+212,Aero Peru
+213,Surinam Airways
+214,XL Airways
+215,Qantas Airlines
+216,Aires Airline
+217,Norwegian Airlines
+218,Brussels Airlines
+219,Republic Airways
+220,Interjet
+221,Japan Air Systems
+222,Royal Air Maroc
+0,Southwest Airlines
+1,Delta Air Lines
+2,Jet Blue
+3,Continental Airlines
+4,Northwest Airlines
+5,UAL
+6,American Airlines
+7,Skywest Airlines Inc USA
+8,China Airlines
+9,USAir
+10,Alaska Airlines
+11,Air Tran Airlines(do not use
+12,America West
+13,Spirit Airlines
+14,Sun Country Airlines
+15,Westjet Airlines
+16,ATA Aerocondor
+17,Frontier Airlines
+18,Virgin Atlantic
+19,AirTran Airlines
+20,Air Canada
+21,Hawaiian Airlines
+22,Continental Express
+23,Allegiant Air
+24,Midwest Express Airlines
+25,British Airways
+26,Horizon Air
+27,Alitalia
+28,Avianca
+29,Aloha Airlines
+30,Air France
+31,American Eagle
+32,Qantus Airways
+33,Mexicana
+34,Swiss Air
+35,USA 3000 (U5
+36,American West
+37,Midway Airlines
+38,US Express
+39,Lufthansa
+40,Britannia Airways
+41,Iceland Air
+42,American Central
+43,North American Airlines
+44,Air New Zealand
+45,Japan Airlines
+46,Czech Airlines
+47,Southeast Airlines
+48,EL AL Israeli Airlines
+49,Ryan Air
+50,Island Air
+51,Scandinavian Airlines Systems
+52,KLM Royal Dutch Airlines
+53,Aero Mexico
+54,Cathay Pacific - CX
+55,Aerolineas Argentinas
+56,Aer Lingus
+57,Air China
+58,EVA airlines
+59,America Trans Air
+60,Polish Airlines
+61,Cayman Airlines
+62,Pakistan International Airlines Cor
+63,South African Airways
+64,LOT Polish Airlines
+65,Singapore Airlines
+66,Guyana Airways
+67,Harmony Airlines
+68,Korean Airlines
+69,Air Jamaica
+70,Comair
+71,Royal Jordanian Airline
+72,Northwest International Airways
+73,Egypt Air
+74,All Nippon Airways
+75,Monarch Airlines
+76,Malaysian Airline System
+77,Cape Air
+78,British Midland Airways
+79,Frontier Aviation
+80,Air Pacific
+81,Go
+82,Austrian Airlines
+83,Asiana Airlines
+84,Champion Airlines
+85,Great Lakes Airline
+86,China Eastern Airlines
+87,Delta (Song
+88,Malev Hungarian Airlines
+89,Air India
+90,OMNI Air Express- (OY
+91,Aero Flot
+92,Olympic Airways
+93,Commercial Airways
+94,Thai Airways
+95,Montair Aviation
+96,Aerosweet Airlines
+97,Iberia Airlines
+98,Big Sky Airlines
+99,Travelspan
+100,Lan Airlines
+101,SkyBus
+102,Bahama Airlines
+103,Copa Airlines
+104,Turkish Airlines
+105,Silverjet
+106,Condor Air
+107,Kuwait Airways
+108,Air Phillipines
+109,Virgin Express
+110,Jet Train Airlines
+111,JAT
+112,Brit Air
+113,Air Inter Europe
+114,British West Indies Airlines
+115,Cameroon Airlines
+116,Canadian Airlines
+117,Sunworld International Airlines
+118,Aeroflot Russian International
+119,Virgin America
+120,Royal Dutch Airlines
+121,Eurowings
+122,TAP Portugal
+123,Mesa Airlines
+124,Saudi Arabian Airlines
+125,TACA airlines
+126,Air Botina
+127,Allegheny Airlines
+128,Mountain West
+129,Vision Airlines
+130,Direct Air
+131,Qatar airlines
+132,Carribean Airlines
+133,V Australia
+134,Emirates
+135,Ethopian Airlines
+136,TAM airlines
+137,Vieques Air
+138,Jet Airways
+139,Aerosvit Airlines
+140,Thomas Cook Airline
+141,SonAir
+142,Globe Span Airlines
+143,Air Nippon
+144,AeroGal
+145,China Southern Airlines
+146,SunWing Airlines
+147,Civil Aviation - Non-Commercial Carrier
+148,Santa Barbara Airlines
+149,Martinair
+150,Philippine Airlines
+151,Xtra Airways
+152,Tran Meridian Airlines
+153,Tower Air
+154,Air 2000 Ltd Great Britain
+155,TWA
+156,Sun Jet International Airlines
+157,Indian Airlines
+158,Pan American Airways
+159,Pace Airlines
+160,Western Pacific Airlines Inc Westpac
+161,Reno Air
+162,Aloha Islandair
+163,Wiggins Airways
+164,Skywest Airlines Australia
+165,Royal Wings Airlines
+166,Kuwait Airlines
+167,Independence Air
+168,Hooters Air (PACE
+169,Island Airlines Nantucket
+170,Pacific Southwest Airlines
+171,Arika Isreali Airlines
+172,Mountain Air Express
+173,Aviaco
+174,Greyhound Air
+175,Cubana
+176,Aero Lloyd
+177,Air Labrador
+178,Air Belgium International S A
+179,Aero California
+180,Estonia Air
+181,Iran Air
+182,Air Ukraine International
+183,Air Portugal
+184,Middle East Airlines
+185,Air Atlantic
+186,Grupo TACA
+187,Czechoslavak Airlines
+188,Piedmont Airlines
+189,Croatia Airlines
+190,Air Malta
+191,Aero Lineas Mexicanas J S S A De C V
+192,Air Europa
+193,CanJet
+194,Aero Costa Rica
+195,Finnair
+196,Aeromar
+197,Webjet
+198,Air Tahiti Nui
+199,Porter Airlines
+200,Sata
+201,Aerolitoral
+202,Etihad Airways
+203,Volaris Airlines
+204,Transaero Airlines
+205,Seaborne Airlines
+206,JALways Airlines
+207,Arik Airlines
+208,Air Berlin
+209,Hainan Airlines
+210,vivaAerobus
+211,ERA aviation Air
+212,Aero Peru
+213,Surinam Airways
+214,XL Airways
+215,Qantas Airlines
+216,Aires Airline
+217,Norwegian Airlines
+218,Brussels Airlines
+219,Republic Airways
+220,Interjet
+221,Japan Air Systems
+222,Royal Air Maroc
+223,JetBlue Airways
+224,Continental Air Lines
+225,Atlantic Coast Airlines
+226,Atlantic Southeast Airlines
+227,AirTran Airways
+228,America West Airlines
+229,American Eagle Airlines
+230,SkyWest Airlines
+231,ExpressJet Airlines
+232,ATA Airlines d/b/a ATA
+233,United Air Lines
+234,US Airways
+235,Pinnacle Airlines
+236,Endeavor Air
+237,Envoy Air
+238,Spirit Air Lines
