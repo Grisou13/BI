@@ -13,7 +13,7 @@ class ClaimsProcessor(Processor):
     out = "claims"
     claimType = "Property Damage"
     fields = ["date", "airline", "Item", "Claim Amount"]
-
+    name = "claims"
     def process(self, in_, out):
         """
 
@@ -43,9 +43,10 @@ class ClaimsProcessor(Processor):
                 if not "" in r.values() and all(r.values()):
                     out.writerow(r)
             except Exception as e:
-                print(e)
-                print("something went wrong with row")
-                print(sheet.row(row_index))
+                pass
+                # print(e)
+                # print("something went wrong with row")
+                # print(sheet.row(row_index))
         # wb = openpyxl.load_workbook(in_)
         # ws = wb.get_active_sheet()
         # for row in ws.iter_rows(min_row=1, max_col=ws.max_column, max_row=ws.max_row):
