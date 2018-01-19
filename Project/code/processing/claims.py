@@ -35,7 +35,7 @@ class ClaimsProcessor(Processor):
                 date = datetime.datetime(*xlrd.xldate_as_tuple(val, book.datemode))
                 airline_name = sheet.cell(row_index, 5).value
 
-                r = {"date": date.date().strftime("%Y-%m"), "airline": cleanco(airline_name).clean_name(),
+                r = {"date": date.date().strftime("%Y-%m-%d"), "airline": cleanco(airline_name).clean_name(),
                      "Item": sheet.cell(row_index, 8).value, "Claim Amount": sheet.cell(row_index, 9).value}
 
                 l = [sheet.cell(row_index, 2), sheet.cell(row_index, 5), sheet.cell(row_index, 8),

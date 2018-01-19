@@ -4,9 +4,6 @@ import os
 import pandas as pd
 import numpy as np
 
-r = lambda x : os.path.realpath(os.path.join(os.path.dirname(os.path.realpath(__file__)),"../data/processed/",x))
-t = lambda x : os.path.realpath(os.path.join(os.path.dirname(os.path.realpath(__file__)),"../data/tidy/",x))
-
 def runPostProcess(f, ot, in_):
     pass
 
@@ -34,13 +31,12 @@ def main():
     print()
     print("Post processing to tidy up data")
     print()
-    df = pd.read_csv(r("flights.csv"))
-    # df['delay'] = df.apply(lambda x: x['late_aircraft_delay'] + x['carrier_delay'], axis=1)
-    df.groupby(["date","airline"]).agg({"delay":np.sum,"cancelled":np.sum}).to_csv(t("airline_delays.csv"))
-    df.groupby(["date","airline"]).count().to_csv(t("airline_count.csv"))
 
-    df = pd.read_csv(r("claims.csv"))
-    df.groupby(["date","airline"]).count().to_csv(t("claims_count.csv"))
+    for proc in config.POSTPROCESS:
+        proc.process()
+
+
+        
 
     # with open(os.path.join(os.path.dirname(os.path.realpath(__file__)),"../data/processed/airlines.csv") ,'r+') as f:
     #     reader = csv.DictReader(f, fieldnames = ["id","airline"])
