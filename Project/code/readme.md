@@ -41,3 +41,11 @@ The data is processed by multiple processors, each one handles a specific file i
 | postprocess/flights.py | FlightsPostProcessor | data/processed/flights.csv                           | data/tidy/airline_delays.csv data/tidy/airline_count.csv | Tidies up the data, and groups by the data. Spits out the same columns than the input but with counting the number of entries present | "date","airline","delay","carrier_delay","weather_delay","late_aircraft_delay","cancelled"                                                     | "date","airline","delay","carrier_delay","weather_delay","late_aircraft_delay","cancelled" |
 | postprocess/claims.py  | ClaimsPostProcessor  | data/processed/claims.csv                            | data/tidy/claims_count.csv                               | Tidies up the data, and groups by the data. Spits out the same columns than the input but with counting the number of entries present | "date", "airline", "Item", "Claim Amount"                                                                                                      | "date", "airline", "Item", "Claim Amount"                                                  |
 | postprocess/airline.py | AirlinePostProcessor | data/processed/flights.csv data/processed/claims.csv | data/tidy/airlines.csv                                   | Creates a pivot table to link airlines.                                                                                               | *                                                                                                                                              | *                                                                                          |
+
+## Getting the plots
+
+Simply run
+
+```
+python3 plot.py
+```
