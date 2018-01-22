@@ -8,8 +8,8 @@ from postprocess.flights import FlightsPostProcessor
 from postprocess.claimsWithDelay import ClaimsWithDelayPostProcessor
 
 PROCESSING = [
-	# ClaimsProcessor(),
-	# FlightProcessor(),
+	ClaimsProcessor(),
+	FlightProcessor(),
 ]
 
 POSTPROCESS = [

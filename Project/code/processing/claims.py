@@ -12,7 +12,7 @@ class ClaimsProcessor(Processor):
     input = "claims"
     out = "claims"
     claimType = "Property Damage"
-    fields = ["date", "airline", "Item", "Claim Amount"]
+    fields = ["date","month", "airline", "item", "claim_amount"]
     name = "claims"
     def process(self, in_, out):
         """
@@ -34,9 +34,9 @@ class ClaimsProcessor(Processor):
                     row_index, 2).value
                 date = datetime.datetime(*xlrd.xldate_as_tuple(val, book.datemode))
                 airline_name = sheet.cell(row_index, 5).value
-
-                r = {"date": date.date().strftime("%Y-%m-%d"), "airline": cleanco(airline_name).clean_name(),
-                     "Item": sheet.cell(row_index, 8).value, "Claim Amount": sheet.cell(row_index, 9).value}
+                val = sheet.cell(row_index, 9).value
+                r = {"date": date.date().strftime("%Y-%m-%d"), "month":date.date().strftime("%Y-%m"), "airline": cleanco(airline_name).clean_name(),
+                     "item": sheet.cell(row_index, 8).value, "claim_amount": val if val is not "-" else 0}
 
                 l = [sheet.cell(row_index, 2), sheet.cell(row_index, 5), sheet.cell(row_index, 8),
                      sheet.cell(row_index, 9)]
