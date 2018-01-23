@@ -9,6 +9,12 @@ import matplotlib.pyplot as plt
 claimsDf = pd.read_csv(r("claims.csv"))
 flightsDf = pd.read_csv(r("flights.csv"))
 
+# mostDelayedAirline = flightsDf.groupby(["airline"]).agg({"delay":np.sum})["delay"].sort_values().nlargest(10).index.values
+# d = flightsDf[((flightsDf["airline"].isin(mostDelayedAirline)))]
+# print(d)
+# print(d.groupby(["month","airline"]).agg({"delay":np.sum}))
+# sys.exit()
+
 d1 = claimsDf.groupby(["month","airline"]).count()
 d2 = flightsDf.groupby(["month","airline"]).agg({"delay":np.sum,"cancelled":np.sum})
 
@@ -74,10 +80,11 @@ ax.get_figure().savefig(f("5"))
 
 
 # 6. Combine all
-df = flightsDf.groupby(["month","airline"]).agg({"delay":np.sum})
+mostDelayedAirline = flightsDf.groupby(["airline"]).agg({"delay":np.sum})["delay"].sort_values().nlargest(10).index.values
+d = flightsDf[((flightsDf["airline"].isin(mostDelayedAirline)))]
+df = d.groupby(["month","airline"]).agg({"delay":np.sum})
 
 df = df.unstack()
-print(df)
 ax = df.plot(figsize=(24, 15))
 ax.set_ylabel("Delay sum / month")
 ax.legend(bbox_to_anchor=(-1.2, 1))
